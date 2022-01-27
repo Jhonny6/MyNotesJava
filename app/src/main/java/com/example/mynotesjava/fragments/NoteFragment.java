@@ -85,6 +85,15 @@ public class NoteFragment extends Fragment {
             noteList.add(new Note("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
             noteList.add(new Note("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
             noteList.add(new Note("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
+            noteList.add(new Note("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
+            noteList.add(new Note("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
+            noteList.add(new Note("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
+            noteList.add(new Note("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
+            noteList.add(new Note("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
+            noteList.add(new Note("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
+            noteList.add(new Note("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
+            noteList.add(new Note("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
+            noteList.add(new Note("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
             adapterNote = new MyNoteRecyclerViewAdapter(noteList, mListener);
             recyclerView.setAdapter(adapterNote);
         }
