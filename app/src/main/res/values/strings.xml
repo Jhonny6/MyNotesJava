@@ -10,4 +10,16 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
+    <string name="new_note_title">Nueva nota</string>
+    <string name="new_note_label">Introduzca los datos de la nueva nota</string>
+    <string name="save_label">Guardar</string>
+    <string name="cancel_label">Cancelar</string>
+    <string name="new_note">Nueva nota</string>
+    <string name="t_tulo">Título</string>
+    <string name="content_label">Contenido de la nota</string>
+    <string name="color_red">Rojo</string>
+    <string name="color_green">Verde</string>
+    <string name="color_blue">Azul</string>
+    <string name="select_color">Seleccione un color</string>
+    <string name="favorite_label">Favorito</string>
 </resources>

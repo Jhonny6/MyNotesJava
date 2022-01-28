@@ -5,15 +5,25 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import com.example.mynotesjava.ui.MyNoteRecyclerViewAdapter;
+
+import com.example.mynotesjava.NewNoteDialogFragment;
+import com.example.mynotesjava.NewNoteDialogViewModel;
 import com.example.mynotesjava.R;
 import com.example.mynotesjava.db.entity.NoteEntity;
+import com.example.mynotesjava.ui.MyNoteRecyclerViewAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +35,7 @@ public class NoteFragment extends Fragment {
     private int mColumnCount = 2;
     private List<NoteEntity> noteEntityList;
     private MyNoteRecyclerViewAdapter adapterNote;
+    private NewNoteDialogViewModel newNoteDialogViewModel;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -50,6 +61,8 @@ public class NoteFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -71,21 +84,45 @@ public class NoteFragment extends Fragment {
             }
 
             noteEntityList = new ArrayList<>();
-            noteEntityList.add(new NoteEntity("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
-            noteEntityList.add(new NoteEntity("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
-            noteEntityList.add(new NoteEntity("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
-            noteEntityList.add(new NoteEntity("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
-            noteEntityList.add(new NoteEntity("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
-            noteEntityList.add(new NoteEntity("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
-            noteEntityList.add(new NoteEntity("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
-            noteEntityList.add(new NoteEntity("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
-            noteEntityList.add(new NoteEntity("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
-            noteEntityList.add(new NoteEntity("Lista de la compra", "pan", true, android.R.color.holo_blue_light));
-            noteEntityList.add(new NoteEntity("Pendientes", "Puerta no cierra bien", false, android.R.color.holo_orange_dark));
-            noteEntityList.add(new NoteEntity("Claves de acceso", "Usuario asdasdasdasda contraseña asasfdasdfsdf", true, android.R.color.darker_gray));
+
             adapterNote = new MyNoteRecyclerViewAdapter(noteEntityList, getActivity());
             recyclerView.setAdapter(adapterNote);
+
+            launchViewModel();
         }
         return view;
+    }
+
+    private void launchViewModel() {
+        newNoteDialogViewModel = new ViewModelProvider(getActivity())
+                .get(NewNoteDialogViewModel.class);
+        newNoteDialogViewModel.getAllNotes().observe(getActivity(), new Observer<List<NoteEntity>>() {
+            @Override
+            public void onChanged(List<NoteEntity> noteEntities) {
+                adapterNote.setNewNotes(noteEntities);
+            }
+        });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.options_menu_note_fragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_new_note:
+                showNewNoteDialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void showNewNoteDialog() {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        NewNoteDialogFragment dialogFragment = new NewNoteDialogFragment();
+        dialogFragment.show(fragmentManager, "NewNoteDialogFragment");
     }
 }
