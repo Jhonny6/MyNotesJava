@@ -6,7 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.mynotesjava.interfaces.NoteDao;
+import com.example.mynotesjava.db.dao.NoteDao;
+import com.example.mynotesjava.db.entity.NoteEntity;
 
 @Database(entities = {NoteEntity.class}, version = 1)
 public abstract class NoteRoomDatabase extends RoomDatabase {

@@ -1,4 +1,4 @@
-package com.example.mynotesjava.fragments;
+package com.example.mynotesjava.ui.fragments;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import com.example.mynotesjava.MyNoteRecyclerViewAdapter;
+import com.example.mynotesjava.ui.MyNoteRecyclerViewAdapter;
 import com.example.mynotesjava.R;
-import com.example.mynotesjava.data.NoteEntity;
+import com.example.mynotesjava.db.entity.NoteEntity;
 import java.util.ArrayList;
 import java.util.List;
 

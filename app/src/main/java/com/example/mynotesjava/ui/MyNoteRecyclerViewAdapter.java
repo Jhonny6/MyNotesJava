@@ -1,4 +1,4 @@
-package com.example.mynotesjava;
+package com.example.mynotesjava.ui;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.mynotesjava.data.NoteEntity;
+
+import com.example.mynotesjava.R;
+import com.example.mynotesjava.db.entity.NoteEntity;
 import com.example.mynotesjava.databinding.FragmentNoteBinding;
 import java.util.List;
 

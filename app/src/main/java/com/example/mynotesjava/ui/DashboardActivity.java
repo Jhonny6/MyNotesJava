@@ -1,4 +1,4 @@
-package com.example.mynotesjava.activities;
+package com.example.mynotesjava.ui;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

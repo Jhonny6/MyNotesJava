@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNotesJava">
         <activity
-            android:name=".activities.DashboardActivity"
+            android:name=".ui.DashboardActivity"
             android:exported="true"
             android:label="@string/title_activity_home" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

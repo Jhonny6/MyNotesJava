@@ -1,11 +1,11 @@
-package com.example.mynotesjava.interfaces;
+package com.example.mynotesjava.db.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-import com.example.mynotesjava.data.NoteEntity;
+import com.example.mynotesjava.db.entity.NoteEntity;
 import java.util.List;
 
 @Dao
