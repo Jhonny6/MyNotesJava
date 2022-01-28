@@ -2,23 +2,24 @@ package com.example.mynotesjava;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.mynotesjava.data.Note;
-import com.example.mynotesjava.interfaces.NotesInteractionListener;
+import com.example.mynotesjava.data.NoteEntity;
 import com.example.mynotesjava.databinding.FragmentNoteBinding;
 import java.util.List;
 
 public class MyNoteRecyclerViewAdapter extends RecyclerView.Adapter<MyNoteRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Note> mValues;
-    private final NotesInteractionListener mListener;
+    private final List<NoteEntity> mValues;
+    private Context ctx;
 
-    public MyNoteRecyclerViewAdapter(List<Note> items, NotesInteractionListener listener) {
+    public MyNoteRecyclerViewAdapter(List<NoteEntity> items, Context context) {
         mValues = items;
-        this.mListener = listener;
+        this.ctx = context;
     }
 
     @Override
@@ -37,9 +38,7 @@ public class MyNoteRecyclerViewAdapter extends RecyclerView.Adapter<MyNoteRecycl
         }
 
         holder.ivFavorite.setOnClickListener(view -> {
-            if (null != mListener) {
-                mListener.favoriteNoteClick(holder.mItem);
-            }
+
         });
     }
 
@@ -52,7 +51,7 @@ public class MyNoteRecyclerViewAdapter extends RecyclerView.Adapter<MyNoteRecycl
         public final TextView mTitle;
         public final TextView mContentView;
         public final ImageView ivFavorite;
-        public Note mItem;
+        public NoteEntity mItem;
 
         public ViewHolder(FragmentNoteBinding binding) {
             super(binding.getRoot());

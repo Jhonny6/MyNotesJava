@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.example.mynotesjava.R;
-import com.example.mynotesjava.activities.HomeActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin;
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.button_login);
         btnLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(this, HomeActivity.class);
+            Intent intent = new Intent(this, DashboardActivity.class);
             startActivity(intent);
         });
     }

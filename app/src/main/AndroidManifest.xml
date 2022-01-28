@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNotesJava">
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".activities.DashboardActivity"
             android:exported="true"
             android:label="@string/title_activity_home" />
         <activity

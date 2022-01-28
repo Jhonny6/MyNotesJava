@@ -7,11 +7,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.example.mynotesjava.R;
-import com.example.mynotesjava.data.Note;
-import com.example.mynotesjava.interfaces.NotesInteractionListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity implements NotesInteractionListener {
+public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +25,5 @@ public class HomeActivity extends AppCompatActivity implements NotesInteractionL
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_home);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-    }
-
-    @Override
-    public void editNoteClick(Note note) {
-
-    }
-
-    @Override
-    public void deleteNoteClick(Note note) {
-
-    }
-
-    @Override
-    public void favoriteNoteClick(Note note) {
-
     }
 }

@@ -1,16 +1,32 @@
 package com.example.mynotesjava.data;
 
-public class Note {
-    private String title;
-    private String content;
-    private boolean favorite;
-    private int color;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public Note(String title, String content, boolean favorite, int color) {
+@Entity(tableName = "notes")
+public class NoteEntity {
+
+    @PrimaryKey(autoGenerate = true)
+    public int id;
+
+    public String title;
+    public String content;
+    public boolean favorite;
+    public int color;
+
+    public NoteEntity(String title, String content, boolean favorite, int color) {
         this.title = title;
         this.content = content;
         this.favorite = favorite;
         this.color = color;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
