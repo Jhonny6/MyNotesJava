@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
 import com.example.mynotesjava.R;
-import com.example.mynotesjava.ui.DashboardActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin;

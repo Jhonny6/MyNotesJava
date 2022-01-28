@@ -19,4 +19,5 @@ public class NewNoteDialogViewModel extends AndroidViewModel {
 
     public LiveData<List<NoteEntity>> getAllNotes() { return allNotes; }
     public void insertNote(NoteEntity newNoteEntity) { noteRepository.insert(newNoteEntity); }
+    public void updateNote(NoteEntity newNoteEntity) { noteRepository.update(newNoteEntity); }
 }

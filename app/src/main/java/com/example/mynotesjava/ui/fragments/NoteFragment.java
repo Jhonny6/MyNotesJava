@@ -17,13 +17,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import com.example.mynotesjava.NewNoteDialogFragment;
 import com.example.mynotesjava.NewNoteDialogViewModel;
 import com.example.mynotesjava.R;
 import com.example.mynotesjava.db.entity.NoteEntity;
 import com.example.mynotesjava.ui.MyNoteRecyclerViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,14 +1,16 @@
 package com.example.mynotesjava.ui;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStore;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.example.mynotesjava.NewNoteDialogViewModel;
 import com.example.mynotesjava.R;
 import com.example.mynotesjava.db.entity.NoteEntity;
 import com.example.mynotesjava.databinding.FragmentNoteBinding;
@@ -18,10 +20,12 @@ public class MyNoteRecyclerViewAdapter extends RecyclerView.Adapter<MyNoteRecycl
 
     private List<NoteEntity> mValues;
     private Context ctx;
+    private NewNoteDialogViewModel newNoteDialogViewModel;
 
-    public MyNoteRecyclerViewAdapter(List<NoteEntity> items, Context context) {
+    public MyNoteRecyclerViewAdapter(List<NoteEntity> items, Context ctx) {
         mValues = items;
-        this.ctx = context;
+        this.ctx = ctx;
+        newNoteDialogViewModel = new ViewModelProvider((AppCompatActivity)ctx).get(NewNoteDialogViewModel.class);
     }
 
     @Override
@@ -40,7 +44,14 @@ public class MyNoteRecyclerViewAdapter extends RecyclerView.Adapter<MyNoteRecycl
         }
 
         holder.ivFavorite.setOnClickListener(view -> {
-
+            if (holder.mItem.isFavorite()) {
+                holder.mItem.setFavorite(false);
+                holder.ivFavorite.setImageResource(R.drawable.ic_baseline_bookmark_border_24);
+            } else {
+                holder.mItem.setFavorite(true);
+                holder.ivFavorite.setImageResource(R.drawable.ic_baseline_bookmark_24);
+            }
+            newNoteDialogViewModel.updateNote(holder.mItem);
         });
     }
 
